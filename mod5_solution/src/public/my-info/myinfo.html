@@ -1,0 +1,43 @@
+<div class="container">
+    <div ng-if='myInfoCtrl.user.firstname !== undefined'>
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <h2>My Info:</h2>
+                <hr>
+                <div>First Name: {{myInfoCtrl.user.firstname}}</div>
+                <div>Last Name: {{myInfoCtrl.user.lastname}}</div>
+                <div>Email: {{myInfoCtrl.user.email}}</div>
+                <div>Phone: {{myInfoCtrl.user.phone}}</div>
+                <div>Favourite Food: {{myInfoCtrl.user.favFood}}</div>
+            </div>
+            <div class="col-xs-12">
+                <div class="row text-center">
+                    <br>
+                    <h2>My Favorite: </h2>
+                    <hr>
+                </div>
+                <div class="menu-item-tile row">
+                    <div class="col-xs-5">
+                        <div class="menu-item-photo">
+                            <div>{{myInfoCtrl.menuItem.short_name}}</div>
+                            <img class="img-responsive" width="250" height="150" ng-src="{{myInfoCtrl.basePath}}/images/{{myInfoCtrl.menuItem.short_name}}.jpg"
+                                alt="{{myInfoCtrl.menuItem.name}}">
+                        </div>
+                    </div>
+                    <div class="menu-item-description col-xs-7">
+                        <h3 class="menu-item-title">{{myInfoCtrl.menuItem.name}}</h3>
+                        <p class="menu-item-details">{{myInfoCtrl.menuItem.description}}</p>
+                        <div class="menu-item-price">{{myInfoCtrl.menuItem.price_small | currency}}
+                            <span> {{myInfoCtrl.menuItem.small_portion_name}}</span>
+                            <span>{{myInfoCtrl.menuItem.price_large | currency}}</span>
+                            <span>{{myInfoCtrl.menuItem.large_portion_name}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if='myInfoCtrl.user.firstname === undefined'>
+        <h4>Not Signed Up Yet. <a ui-sref=public.signup>Sign up Now!</a></h4>
+    </div>
+</div>
