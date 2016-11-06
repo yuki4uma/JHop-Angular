@@ -1,0 +1,65 @@
+<div id='signupid' class='container'>
+<fieldset>
+      <legend>Registration</legend>
+      <form name='regForm' novalidate>
+
+        <input type="text" name="firstname" placeholder="First Name"
+          ng-model="signUpCtrl.user.firstname"
+          required
+          >
+
+          <br>
+
+          <input type="text" name="lastname" placeholder="Last Name"
+          ng-model="signUpCtrl.user.lastname"
+          required
+          >
+
+          <br>
+
+        <input type="email" name="email" placeholder="Email"
+          ng-model="signUpCtrl.user.email"
+          required>
+          <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+
+        <input type="text" name="phone" placeholder="Phone ###-###-####"
+          ng-model="signUpCtrl.user.phone"
+          pattern="(\d{3})-(\d{3})-(\d{4})"
+          required>
+          <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+          <br>
+
+        <input type="text" name="favFood" placeholder="Fav Food Number"
+          ng-model="signUpCtrl.user.favFood"
+          required
+          >
+          <span ng-if="signUpCtrl.error"> No such menu number exist!</span>
+
+
+          <br>
+
+        <button
+          class="submitbutton"
+          ng-disabled="regForm.$invalid"
+          ng-click="signUpCtrl.submitValues()">Submit</button>
+
+          <div ng-if='signUpCtrl.updated'>
+          Your information has been saved!
+          </div>
+
+          <div ng-if='signUpCtrl.updated == false'>
+          Signup Failed!
+          </div>
+
+
+
+
+      </form>
+    </fieldset>
+
+    </div>
